@@ -158,6 +158,9 @@ import QRCodeStyling from 'qr-code-styling'
 // We will use a lightweight CDN for the export logic to avoid heavy local dependencies
 import * as htmlToImage from 'html-to-image';
 
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const qrText = ref('https://google.com')
 const qrColor = ref('#1e293b')
 const qrType = ref('square')
@@ -247,6 +250,15 @@ onMounted(() => {
     imageOptions: { crossOrigin: 'anonymous', margin: 10, imageSize: 0.4 },
   })
   qrCode.append(qrWrapper.value)
+
+
+  var getlink = localStorage.getItem("link")
+
+  if(!getlink) {
+    router.push('/') 
+    return
+  }
+  qrText.value = getlink
 })
 </script>
 

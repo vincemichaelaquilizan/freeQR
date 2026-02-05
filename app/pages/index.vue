@@ -8,7 +8,7 @@
           </div>
           <h1 class="text-xl font-bold tracking-tight text-slate-900">FreeQR</h1>
         </div>
-        <a class="px-5 py-2 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-blue-600 transition-all shadow-lg shadow-blue-200">
+        <a href="https://ko-fi.com/yuzukikouta58722/goal?g=15" class="px-5 py-2 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-blue-600 transition-all shadow-lg shadow-blue-200">
           Buy me a coffee ☕
         </a>
       </div>
@@ -125,7 +125,11 @@ const router = useRouter()
 const qrText = ref('')
 
 function generateQR() {
-    localStorage.setItem("link",qrText)
+  if (!qrText.value.trim()) {
+    alert('Input cannot be empty!')
+    return
+  }
+    localStorage.setItem("link",qrText.value)
     router.push('/create') 
 }
 </script>

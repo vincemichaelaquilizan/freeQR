@@ -22,7 +22,7 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'freeQR' },
     { name: 'twitter:description', content: 'free qr generator without any accounts' },
-    { name: 'twitter:image', '/image/image.png'  }
+    { name: 'twitter:image',content: '/image/image.png'  },
   ],
   link: [
     { rel: 'icon', type: 'image/png', href: '/image/icon.png' }
