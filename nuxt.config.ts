@@ -5,6 +5,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   app: {
     head: {
+        script: [
+        {
+          src: 'https://pl28655874.effectivegatecpm.com/57/c8/25/57c825ee283851f60a47505f88fd7f1b.js',
+          async: true,
+        },
+      ],
       title: "Free QR Code Generator — No Login, Unlimited & Permanent QR Codes",
 
       link: [
