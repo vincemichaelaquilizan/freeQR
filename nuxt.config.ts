@@ -4,10 +4,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   app: {
     head: {
+      title:"freeQR",
        link: [
-    { rel: 'icon', type: 'image/png', href: '/image/icon.png' }
+    { rel: 'icon', type: 'image/png', href: 'https://freeqr.vincemichaelaquilizan.workers.dev/image/icon.png' }
   ],
       meta: [
+
+{ name:"title", content:"freeQR"},
         {
           name: 'google-site-verification',
           content: 'dEOs9uu8NQ1N1lKve-kI82M3XzmhLk0FQNn0TDFBT3w'
