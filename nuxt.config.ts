@@ -6,10 +6,11 @@ export default defineNuxtConfig({
   app: {
     head: {
         script: [
+        // {
+        //   src: 'https://pl28655874.effectivegatecpm.com/57/c8/25/57c825ee283851f60a47505f88fd7f1b.js',
+        //   async: true,
+        // }, 
         {
-          src: 'https://pl28655874.effectivegatecpm.com/57/c8/25/57c825ee283851f60a47505f88fd7f1b.js',
-          async: true,
-        }, {
         src: "https://pl28655970.effectivegatecpm.com/85c211c61b915c5ed248a00d99af28e7/invoke.js",
         async: true,
         'data-cfasync': 'false'
