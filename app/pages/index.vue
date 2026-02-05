@@ -3,9 +3,10 @@
     <nav class="w-full bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
       <div class="container mx-auto flex items-center justify-between py-4 px-6">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span class="text-white font-black text-xl">Q</span>
-          </div>
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
+  <img src="/image/icon.png" alt="Icon" class="w-8 h-8" />
+</div>
+
           <h1 class="text-xl font-bold tracking-tight text-slate-900">FreeQR</h1>
         </div>
         <a href="https://ko-fi.com/yuzukikouta58722/goal?g=15" class="px-5 py-2 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-blue-600 transition-all shadow-lg shadow-blue-200">
