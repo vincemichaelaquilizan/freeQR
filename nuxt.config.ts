@@ -3,10 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-site: {
-    url: 'https://example.com',
-    name: 'My Site'
-  },
   app: {
     head: {
       title: "Free QR Code Generator — No Login, Unlimited & Permanent QR Codes",
