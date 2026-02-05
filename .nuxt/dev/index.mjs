@@ -2519,7 +2519,7 @@ for (const script of document.scripts) {
 
 const rootDir = "/home/yuzuki/WebDev/freeQR";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"google-site-verification","content":"dEOs9uu8NQ1N1lKve-kI82M3XzmhLk0FQNn0TDFBT3w"}],"link":[],"style":[],"script":[],"noscript":[]};
 
 const appRootTag = "div";
 
