@@ -228,8 +228,6 @@ interface _GlobalComponents {
   'ColorScheme': typeof import("../../node_modules/@nuxtjs/color-mode/dist/runtime/component.vue3.vue").default
   'ContentRenderer': typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentRenderer.vue").default
   'NuxtIsland': typeof import("../../node_modules/@nuxt/hints/dist/runtime/core/components/nuxt-island").default
-  'OgImage': typeof import("../../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImage").default
-  'OgImageScreenshot': typeof import("../../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImageScreenshot").default
   'NuxtPage': typeof import("../../node_modules/nuxt/dist/pages/runtime/page").default
   'NoScript': typeof import("../../node_modules/nuxt/dist/head/runtime/components").NoScript
   'Link': typeof import("../../node_modules/nuxt/dist/head/runtime/components").Link
@@ -458,8 +456,6 @@ interface _GlobalComponents {
   'LazyColorScheme': LazyComponent<typeof import("../../node_modules/@nuxtjs/color-mode/dist/runtime/component.vue3.vue").default>
   'LazyContentRenderer': LazyComponent<typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentRenderer.vue").default>
   'LazyNuxtIsland': LazyComponent<typeof import("../../node_modules/@nuxt/hints/dist/runtime/core/components/nuxt-island").default>
-  'LazyOgImage': LazyComponent<typeof import("../../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImage").default>
-  'LazyOgImageScreenshot': LazyComponent<typeof import("../../node_modules/nuxt-og-image/dist/runtime/app/components/OgImage/OgImageScreenshot").default>
   'LazyNuxtPage': LazyComponent<typeof import("../../node_modules/nuxt/dist/pages/runtime/page").default>
   'LazyNoScript': LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components").NoScript>
   'LazyLink': LazyComponent<typeof import("../../node_modules/nuxt/dist/head/runtime/components").Link>

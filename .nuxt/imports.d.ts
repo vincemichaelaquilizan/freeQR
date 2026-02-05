@@ -45,11 +45,6 @@ export { fieldGroupInjectionKey, useFieldGroup } from '../node_modules/@nuxt/ui/
 export { formOptionsInjectionKey, formBusInjectionKey, formStateInjectionKey, formFieldInjectionKey, inputIdInjectionKey, formInputsInjectionKey, formLoadingInjectionKey, formErrorsInjectionKey, useFormField } from '../node_modules/@nuxt/ui/dist/runtime/composables/useFormField';
 export { localeContextInjectionKey, useLocale } from '../node_modules/@nuxt/ui/dist/runtime/composables/useLocale';
 export { portalTargetInjectionKey, usePortal } from '../node_modules/@nuxt/ui/dist/runtime/composables/usePortal';
-export { getNitroOrigin } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/getNitroOrigin';
-export { updateSiteConfig } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/updateSiteConfig';
-export { useNitroOrigin } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/useNitroOrigin';
-export { useSiteConfig } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/useSiteConfig';
-export { createSitePathResolver, withSiteTrailingSlash, withSiteUrl } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/utils';
 export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';
 export { useScript } from '../node_modules/@nuxt/scripts/dist/runtime/composables/useScript';
 export { useScriptEventPage } from '../node_modules/@nuxt/scripts/dist/runtime/composables/useScriptEventPage';
@@ -85,14 +80,7 @@ export { useScriptGoogleAnalytics } from '../node_modules/@nuxt/scripts/dist/run
 export { useScriptUmamiAnalytics } from '../node_modules/@nuxt/scripts/dist/runtime/registry/umami-analytics';
 export { useColorMode } from '../node_modules/@nuxtjs/color-mode/dist/runtime/composables';
 export { queryCollection, queryCollectionSearchSections, queryCollectionNavigation, queryCollectionItemSurroundings } from '../node_modules/@nuxt/content/dist/runtime/client';
-export { defineOgImage } from '../node_modules/nuxt-og-image/dist/runtime/app/composables/defineOgImage';
-export { defineOgImageComponent } from '../node_modules/nuxt-og-image/dist/runtime/app/composables/defineOgImageComponent';
-export { defineOgImageScreenshot } from '../node_modules/nuxt-og-image/dist/runtime/app/composables/defineOgImageScreenshot';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { flatUnwrap as unwrapSlot } from '../node_modules/@nuxtjs/mdc/dist/runtime/utils/node';
 export { parseMarkdown } from '../node_modules/@nuxtjs/mdc/dist/runtime/parser';
 export { stringifyMarkdown } from '../node_modules/@nuxtjs/mdc/dist/runtime/stringify';
-export { useRobotsRule } from '../node_modules/@nuxtjs/robots/dist/runtime/app/composables/useRobotsRule';
-export { useBotDetection } from '../node_modules/@nuxtjs/robots/dist/runtime/app/composables/useBotDetection';
-export { useI18n } from '../node_modules/nuxt-seo-utils/dist/runtime/app/composables/polyfills';
-export { useBreadcrumbItems } from '../node_modules/nuxt-seo-utils/dist/runtime/app/composables/useBreadcrumbItems';

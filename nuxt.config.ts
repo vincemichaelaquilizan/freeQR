@@ -84,6 +84,6 @@ site: {
     plugins: [tailwindcss()]
   },
 
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/scripts', '@nuxt/ui', '@nuxt/content', '@nuxt/hints', '@nuxtjs/seo', 'nuxt-link-checker', 'nuxt-og-image'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/scripts', '@nuxt/ui', '@nuxt/content', '@nuxt/hints'],
 
 });
