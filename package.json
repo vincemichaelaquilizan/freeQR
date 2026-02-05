@@ -16,6 +16,7 @@
     "@nuxt/image": "^2.0.0",
     "@nuxt/scripts": "^0.13.2",
     "@nuxt/ui": "^4.4.0",
+    "@nuxtjs/seo": "^3.4.0",
     "@tailwindcss/cli": "^4.1.18",
     "@tailwindcss/vite": "^4.1.18",
     "@unhead/vue": "^2.1.2",
@@ -23,9 +24,13 @@
     "eslint": "^9.39.2",
     "html-to-image": "^1.11.13",
     "nuxt": "^4.3.0",
+    "nuxt-link-checker": "^4.3.9",
+    "nuxt-og-image": "^5.1.13",
+    "nuxt-seo-kit": "^0.1.4",
     "qr-code-styling": "^1.9.2",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
+    "unstorage": "^1.17.4",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4"
   }
