@@ -4,6 +4,7 @@
 /// <reference path="runtime-config.d.ts" />
 /// <reference types="/home/yuzuki/WebDev/freeQR/node_modules/@nuxt/nitro-server/dist/index.mjs" />
 /// <reference path="../image/providers.d.ts" />
+/// <reference path="../module/nuxt-site-config.d.ts" />
 /// <reference path="nitro-middleware.d.ts" />
 
 import type { RuntimeConfig } from 'nuxt/schema'

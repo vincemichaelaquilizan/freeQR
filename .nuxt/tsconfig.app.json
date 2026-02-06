@@ -25,6 +25,9 @@
       "@nuxtjs/mdc": [
         "../node_modules/@nuxtjs/mdc"
       ],
+      "nuxt-site-config": [
+        "../node_modules/nuxt-site-config"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -118,6 +121,18 @@
       "#color-mode-options": [
         "./color-mode-options.mjs"
       ],
+      "#sitemap": [
+        "../node_modules/@nuxtjs/sitemap/dist/runtime"
+      ],
+      "#sitemap/*": [
+        "../node_modules/@nuxtjs/sitemap/dist/runtime/*"
+      ],
+      "#site-config": [
+        "../node_modules/nuxt-site-config/dist/runtime"
+      ],
+      "#site-config/*": [
+        "../node_modules/nuxt-site-config/dist/runtime/*"
+      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -137,7 +152,7 @@
         "./mdc-imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/dev"
+        "./manifest/meta/dev.json"
       ],
       "#components": [
         "./components"
@@ -204,6 +219,8 @@
     "../node_modules/@nuxt/ui/node_modules",
     "../node_modules/@nuxt/content/node_modules",
     "../node_modules/@nuxt/hints/node_modules",
+    "../node_modules/nuxt-site-config/node_modules",
+    "../node_modules/@nuxtjs/sitemap/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/@nuxtjs/mdc/node_modules",
@@ -222,6 +239,10 @@
     "../node_modules/dist/runtime/server",
     "../node_modules/*.*",
     "../node_modules/dist/*.*",
+    "../node_modules/nuxt-site-config/dist/runtime/server",
+    "../node_modules/nuxt-site-config/dist/dist/runtime/server",
+    "../node_modules/nuxt-site-config/dist/*.*",
+    "../node_modules/nuxt-site-config/dist/dist/*.*",
     "dev",
     "../server"
   ]

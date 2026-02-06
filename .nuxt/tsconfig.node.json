@@ -25,6 +25,9 @@
       "@nuxtjs/mdc": [
         "../node_modules/@nuxtjs/mdc"
       ],
+      "nuxt-site-config": [
+        "../node_modules/nuxt-site-config"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -94,6 +97,8 @@
     "../node_modules/@nuxt/ui/node_modules",
     "../node_modules/@nuxt/content/node_modules",
     "../node_modules/@nuxt/hints/node_modules",
+    "../node_modules/nuxt-site-config/node_modules",
+    "../node_modules/@nuxtjs/sitemap/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/@nuxtjs/mdc/node_modules",
@@ -109,6 +114,8 @@
     "../layers/*/server/**/*",
     "../layers/*/modules/*/runtime/server/**/*",
     "../node_modules/runtime",
-    "../node_modules/dist/runtime"
+    "../node_modules/dist/runtime",
+    "../node_modules/nuxt-site-config/dist/runtime",
+    "../node_modules/nuxt-site-config/dist/dist/runtime"
   ]
 }

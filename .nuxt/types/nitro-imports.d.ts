@@ -9,6 +9,7 @@ declare global {
   const appendHeaders: typeof import('../../node_modules/h3').appendHeaders
   const appendResponseHeader: typeof import('../../node_modules/h3').appendResponseHeader
   const appendResponseHeaders: typeof import('../../node_modules/h3').appendResponseHeaders
+  const asSitemapUrl: typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/composables/asSitemapUrl').asSitemapUrl
   const assertMethod: typeof import('../../node_modules/h3').assertMethod
   const cachedEventHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').cachedEventHandler
   const cachedFunction: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').cachedFunction
@@ -21,6 +22,7 @@ declare global {
   const createEvent: typeof import('../../node_modules/h3').createEvent
   const createEventStream: typeof import('../../node_modules/h3').createEventStream
   const createRouter: typeof import('../../node_modules/h3').createRouter
+  const createSitePathResolver: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/utils').createSitePathResolver
   const defaultContentType: typeof import('../../node_modules/h3').defaultContentType
   const defineAppConfig: typeof import('../../node_modules/@nuxt/nitro-server/dist/runtime/utils/config').defineAppConfig
   const defineCachedEventHandler: typeof import('../../node_modules/nitropack/dist/runtime/internal/cache').defineCachedEventHandler
@@ -35,6 +37,7 @@ declare global {
   const defineRequestMiddleware: typeof import('../../node_modules/h3').defineRequestMiddleware
   const defineResponseMiddleware: typeof import('../../node_modules/h3').defineResponseMiddleware
   const defineRouteMeta: typeof import('../../node_modules/nitropack/dist/runtime/internal/meta').defineRouteMeta
+  const defineSitemapEventHandler: typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/composables/defineSitemapEventHandler').defineSitemapEventHandler
   const defineTask: typeof import('../../node_modules/nitropack/dist/runtime/internal/task').defineTask
   const defineWebSocket: typeof import('../../node_modules/h3').defineWebSocket
   const defineWebSocketHandler: typeof import('../../node_modules/h3').defineWebSocketHandler
@@ -49,6 +52,8 @@ declare global {
   const getHeader: typeof import('../../node_modules/h3').getHeader
   const getHeaders: typeof import('../../node_modules/h3').getHeaders
   const getMethod: typeof import('../../node_modules/h3').getMethod
+  const getNitroOrigin: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/getNitroOrigin').getNitroOrigin
+  const getPathRobotConfig: typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/robots-polyfill/getPathRobotConfig').getPathRobotConfig
   const getProxyRequestHeaders: typeof import('../../node_modules/h3').getProxyRequestHeaders
   const getQuery: typeof import('../../node_modules/h3').getQuery
   const getRequestFingerprint: typeof import('../../node_modules/h3').getRequestFingerprint
@@ -68,6 +73,8 @@ declare global {
   const getRouterParam: typeof import('../../node_modules/h3').getRouterParam
   const getRouterParams: typeof import('../../node_modules/h3').getRouterParams
   const getSession: typeof import('../../node_modules/h3').getSession
+  const getSiteConfig: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/getSiteConfig').getSiteConfig
+  const getSiteIndexable: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/getSiteIndexable').getSiteIndexable
   const getValidatedQuery: typeof import('../../node_modules/h3').getValidatedQuery
   const getValidatedRouterParams: typeof import('../../node_modules/h3').getValidatedRouterParams
   const handleCacheHeaders: typeof import('../../node_modules/h3').handleCacheHeaders
@@ -124,14 +131,19 @@ declare global {
   const toWebRequest: typeof import('../../node_modules/h3').toWebRequest
   const unsealSession: typeof import('../../node_modules/h3').unsealSession
   const updateSession: typeof import('../../node_modules/h3').updateSession
+  const updateSiteConfig: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/updateSiteConfig').updateSiteConfig
   const useAppConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useAppConfig
   const useBase: typeof import('../../node_modules/h3').useBase
   const useEvent: typeof import('../../node_modules/nitropack/dist/runtime/internal/context').useEvent
   const useImage: typeof import('../../node_modules/@nuxt/image/dist/runtime/server/utils/image').useImage
   const useNitroApp: typeof import('../../node_modules/nitropack/dist/runtime/internal/app').useNitroApp
+  const useNitroOrigin: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/useNitroOrigin').useNitroOrigin
   const useRuntimeConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
   const useSession: typeof import('../../node_modules/h3').useSession
+  const useSiteConfig: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/useSiteConfig').useSiteConfig
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
+  const withSiteTrailingSlash: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/utils').withSiteTrailingSlash
+  const withSiteUrl: typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/composables/utils').withSiteUrl
   const writeEarlyHints: typeof import('../../node_modules/h3').writeEarlyHints
 }
 // for type re-export
@@ -156,5 +168,15 @@ export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsUR
 export { defineAppConfig } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';
 export { useImage } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxt/image/dist/runtime/server/utils/image';
 export { queryCollection, queryCollectionSearchSections, queryCollectionNavigation, queryCollectionItemSurroundings } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxt/content/dist/runtime/nitro';
+export { defineSitemapEventHandler } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxtjs/sitemap/dist/runtime/server/composables/defineSitemapEventHandler';
+export { asSitemapUrl } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxtjs/sitemap/dist/runtime/server/composables/asSitemapUrl';
 export { parseMarkdown } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxtjs/mdc/dist/runtime/parser';
 export { stringifyMarkdown } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxtjs/mdc/dist/runtime/stringify';
+export { getPathRobotConfig } from '/home/yuzuki/WebDev/freeQR/node_modules/@nuxtjs/sitemap/dist/runtime/server/robots-polyfill/getPathRobotConfig';
+export { getNitroOrigin } from '/home/yuzuki/WebDev/freeQR/node_modules/nuxt-site-config/dist/runtime/server/composables/getNitroOrigin';
+export { getSiteConfig } from '/home/yuzuki/WebDev/freeQR/node_modules/nuxt-site-config/dist/runtime/server/composables/getSiteConfig';
+export { getSiteIndexable } from '/home/yuzuki/WebDev/freeQR/node_modules/nuxt-site-config/dist/runtime/server/composables/getSiteIndexable';
+export { updateSiteConfig } from '/home/yuzuki/WebDev/freeQR/node_modules/nuxt-site-config/dist/runtime/server/composables/updateSiteConfig';
+export { useNitroOrigin } from '/home/yuzuki/WebDev/freeQR/node_modules/nuxt-site-config/dist/runtime/server/composables/useNitroOrigin';
+export { useSiteConfig } from '/home/yuzuki/WebDev/freeQR/node_modules/nuxt-site-config/dist/runtime/server/composables/useSiteConfig';
+export { createSitePathResolver, withSiteTrailingSlash, withSiteUrl } from '/home/yuzuki/WebDev/freeQR/node_modules/nuxt-site-config/dist/runtime/server/composables/utils';

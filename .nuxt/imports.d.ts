@@ -45,6 +45,11 @@ export { fieldGroupInjectionKey, useFieldGroup } from '../node_modules/@nuxt/ui/
 export { formOptionsInjectionKey, formBusInjectionKey, formStateInjectionKey, formFieldInjectionKey, inputIdInjectionKey, formInputsInjectionKey, formLoadingInjectionKey, formErrorsInjectionKey, useFormField } from '../node_modules/@nuxt/ui/dist/runtime/composables/useFormField';
 export { localeContextInjectionKey, useLocale } from '../node_modules/@nuxt/ui/dist/runtime/composables/useLocale';
 export { portalTargetInjectionKey, usePortal } from '../node_modules/@nuxt/ui/dist/runtime/composables/usePortal';
+export { getNitroOrigin } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/getNitroOrigin';
+export { updateSiteConfig } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/updateSiteConfig';
+export { useNitroOrigin } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/useNitroOrigin';
+export { useSiteConfig } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/useSiteConfig';
+export { createSitePathResolver, withSiteTrailingSlash, withSiteUrl } from '../node_modules/nuxt-site-config/dist/runtime/app/composables/utils';
 export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';
 export { useScript } from '../node_modules/@nuxt/scripts/dist/runtime/composables/useScript';
 export { useScriptEventPage } from '../node_modules/@nuxt/scripts/dist/runtime/composables/useScriptEventPage';

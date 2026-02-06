@@ -22,6 +22,64 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       serverKnownCssClasses: Array<any>,
    },
 
+   sitemap: {
+      isI18nMapped: boolean,
+
+      sitemapName: string,
+
+      isMultiSitemap: boolean,
+
+      excludeAppSources: Array<any>,
+
+      cacheMaxAgeSeconds: number,
+
+      autoLastmod: boolean,
+
+      defaultSitemapsChunkSize: number,
+
+      minify: boolean,
+
+      sortEntries: boolean,
+
+      debug: boolean,
+
+      discoverImages: boolean,
+
+      discoverVideos: boolean,
+
+      sitemapsPathPrefix: string,
+
+      isNuxtContentDocumentDriven: boolean,
+
+      xsl: string,
+
+      xslTips: boolean,
+
+      xslColumns: Array<{
+
+      }>,
+
+      credits: boolean,
+
+      version: string,
+
+      sitemaps: {
+         "sitemap.xml": {
+            sitemapName: string,
+
+            route: string,
+
+            defaults: any,
+
+            include: Array<any>,
+
+            exclude: Array<string>,
+
+            includeAppSources: boolean,
+         },
+      },
+   },
+
    content: {
       databaseVersion: string,
 
@@ -40,6 +98,18 @@ import { RuntimeConfig as UserRuntimeConfig, PublicRuntimeConfig as UserPublicRu
       },
 
       integrityCheck: boolean,
+   },
+
+   "nuxt-site-config": {
+      stack: Array<{
+
+      }>,
+
+      version: string,
+
+      debug: boolean,
+
+      multiTenancy: Array<any>,
    },
   }
   interface SharedPublicRuntimeConfig {

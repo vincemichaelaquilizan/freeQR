@@ -18,6 +18,21 @@ declare module "nitropack/types" {
     '/__nuxt_hydration/sse': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/hints/dist/runtime/hydration/sse.nitro').default>>>>
     }
+    '/__site-config__/debug.json': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/nuxt-site-config/dist/runtime/server/routes/__site-config__/debug').default>>>>
+    }
+    '/__sitemap__/nuxt-content-urls.json': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/routes/__sitemap__/nuxt-content-urls-v3').default>>>>
+    }
+    '/__sitemap__/debug.json': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/routes/__sitemap__/debug').default>>>>
+    }
+    '/__sitemap__/style.xsl': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/routes/sitemap.xsl').default>>>>
+    }
+    '/sitemap.xml': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxtjs/sitemap/dist/runtime/server/routes/sitemap.xml').default>>>>
+    }
     '/__nuxt_content/content/sql_dump.txt': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../node_modules/@nuxt/content/dist/runtime/presets/node/database-handler').default>>>>
     }
