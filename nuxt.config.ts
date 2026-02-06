@@ -45,7 +45,7 @@ export default defineNuxtConfig({
       ],
 
       link: [
-        { rel: 'icon', type: 'image/png', href: 'https://freeqr.vincemichaelaquilizan.workers.dev/image/icon.png' },
+        { rel: 'icon', type: 'image/png', href: 'https://freeqr.vincemichaelaquilizan.workers.dev/image/icon.ico' },
         { rel: 'canonical', href: 'https://freeqr.vincemichaelaquilizan.workers.dev/' }
       ],
 
