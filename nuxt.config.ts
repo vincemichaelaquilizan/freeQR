@@ -61,7 +61,7 @@ export default defineNuxtConfig({
         },  {
           src: "https://pl28655970.effectivegatecpm.com/85c211c61b915c5ed248a00d99af28e7/invoke.js",
           async: true,
-          'data-cfasync': 'false',
+          'data-cfasync': false,
           tagPosition: 'bodyClose' // Best practice for ad/external scripts to improve page speed
         }
       ]
