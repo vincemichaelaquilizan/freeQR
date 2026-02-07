@@ -8,10 +8,18 @@
 
 
 <script setup>
-onMounted(() => {
-  const s = document.createElement('script')
-  s.dataset.zone = '10582557'
-  s.src = 'https://nap5k.com/tag.min.js'
-  document.body.appendChild(s)
+useHead({
+  script: [
+    {
+      children: `
+        (function(s){
+          s.dataset.zone='10582557';
+          s.src='https://nap5k.com/tag.min.js';
+        })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+      `,
+      type: 'text/javascript'
+    }
+  ]
 })
+
 </script>
