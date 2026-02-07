@@ -3,7 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 // <meta name="monetag" content="399a7c25ec4a54664ceac1cd096cdf96">
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  
+  plugins: [
+
+    '~/plugins/sw.client.ts',
+  ],
   app: {
     head: {
       htmlAttrs: {

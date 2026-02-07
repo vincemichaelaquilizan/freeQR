@@ -1,28 +1,178 @@
-import { getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { g as getResponseStatusText, a as getResponseStatus, b as appId, d as defineRenderHandler, c as buildAssetsURL, p as publicAssetsURL, e as appTeleportTag, f as appTeleportAttrs, h as getQuery, i as createError, j as createSSRContext, k as appHead, l as destr, s as setSSRError, m as getRouteRules, n as joinURL, o as getRenderer, r as renderInlineStyles, q as replaceIslandTeleports, u as useNitroApp, N as NUXT_RUNTIME_PAYLOAD_EXTRACTION } from '../nitro/nitro.mjs';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
+import { b as buildAssetsURL, u as useRuntimeConfig, g as getResponseStatusText, a as getResponseStatus, d as decodePath, c as defineRenderHandler, p as publicAssetsURL, e as getQuery, f as createError, h as destr, i as getRouteRules, j as joinURL, k as useNitroApp } from '../nitro/nitro.mjs';
+import { renderToString } from 'vue/server-renderer';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
-import { propsToString, renderSSRHead } from 'unhead/server';
-import 'lru-cache';
-import '@unocss/core';
-import '@unocss/preset-wind3';
-import 'consola';
-import 'unhead';
-import 'node:http';
-import 'node:https';
-import 'node:events';
-import 'node:buffer';
-import 'node:fs';
-import 'node:path';
-import 'node:crypto';
-import 'vue';
-import 'node:url';
-import 'unhead/plugins';
-import 'unhead/utils';
-import 'vue/server-renderer';
-import '@iconify/utils';
-import 'fast-xml-parser';
-import 'better-sqlite3';
-import 'ipx';
+import { walkResolver } from 'unhead/utils';
+import { isRef, toValue, hasInjectionContext, inject, ref, watchEffect, getCurrentInstance, onBeforeUnmount, onDeactivated, onActivated } from 'vue';
+
+const VueResolver = (_, value) => {
+  return isRef(value) ? toValue(value) : value;
+};
+
+const headSymbol = "usehead";
+// @__NO_SIDE_EFFECTS__
+function vueInstall(head) {
+  const plugin = {
+    install(app) {
+      app.config.globalProperties.$unhead = head;
+      app.config.globalProperties.$head = head;
+      app.provide(headSymbol, head);
+    }
+  };
+  return plugin.install;
+}
+
+// @__NO_SIDE_EFFECTS__
+function injectHead() {
+  if (hasInjectionContext()) {
+    const instance = inject(headSymbol);
+    if (!instance) {
+      throw new Error("useHead() was called without provide context, ensure you call it through the setup() function.");
+    }
+    return instance;
+  }
+  throw new Error("useHead() was called without provide context, ensure you call it through the setup() function.");
+}
+function useHead(input, options = {}) {
+  const head = options.head || /* @__PURE__ */ injectHead();
+  return head.ssr ? head.push(input || {}, options) : clientUseHead(head, input, options);
+}
+function clientUseHead(head, input, options = {}) {
+  const deactivated = ref(false);
+  let entry;
+  watchEffect(() => {
+    const i = deactivated.value ? {} : walkResolver(input, VueResolver);
+    if (entry) {
+      entry.patch(i);
+    } else {
+      entry = head.push(i, options);
+    }
+  });
+  const vm = getCurrentInstance();
+  if (vm) {
+    onBeforeUnmount(() => {
+      entry.dispose();
+    });
+    onDeactivated(() => {
+      deactivated.value = true;
+    });
+    onActivated(() => {
+      deactivated.value = false;
+    });
+  }
+  return entry;
+}
+
+// @__NO_SIDE_EFFECTS__
+function createHead(options = {}) {
+  const head = createHead$1({
+    ...options,
+    propResolvers: [VueResolver]
+  });
+  head.install = vueInstall(head);
+  return head;
+}
+
+const NUXT_RUNTIME_PAYLOAD_EXTRACTION = false;
+
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"monetag","content":"399a7c25ec4a54664ceac1cd096cdf96"},{"name":"admaven-placement","content":"Bqjw5pdkG"},{"name":"robots","content":"index, follow"},{"name":"description","content":"Generate free QR codes instantly with no login or limits. Create high-quality, permanent static QR codes for URLs, WiFi, and text. 100% free and secure."},{"name":"keywords","content":"free qr code generator, no login qr code, permanent qr codes, unlimited qr generator, static qr code"},{"name":"google-site-verification","content":"dEOs9uu8NQ1N1lKve-kI82M3XzmhLk0FQNn0TDFBT3w"},{"property":"og:site_name","content":"Free QR Generator"},{"property":"og:type","content":"website"},{"property":"og:url","content":"https://freeqr.vincemichaelaquilizan.workers.dev/"},{"property":"og:title","content":"Free QR Code Generator — No Login Required"},{"property":"og:description","content":"Create unlimited, permanent QR codes for free. Simple, fast, and no sign-up needed."},{"property":"og:image","content":"https://freeqr.vincemichaelaquilizan.workers.dev/image/image.png"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:title","content":"Free QR Code Generator — No Login"},{"name":"twitter:description","content":"Generate unlimited free QR codes instantly. No account, no expiration."},{"name":"twitter:image","content":"https://freeqr.vincemichaelaquilizan.workers.dev/image/image.png"}],"link":[{"rel":"icon","type":"image/png","href":"https://freeqr.vincemichaelaquilizan.workers.dev/image/icon.ico"},{"rel":"canonical","href":"https://freeqr.vincemichaelaquilizan.workers.dev/"}],"style":[],"script":[{"src":"https://quge5.com/88/tag.min.js","async":true,"data-zone":"209272","data-cfasync":"false"},{"src":"https://pl28655970.effectivegatecpm.com/85c211c61b915c5ed248a00d99af28e7/invoke.js","async":true,"data-cfasync":false,"tagPosition":"bodyClose"}],"noscript":[],"htmlAttrs":{"lang":"en"},"title":"Free QR Code Generator — No Login, Unlimited & Permanent"};
+
+const appRootTag = "div";
+
+const appRootAttrs = {"id":"__nuxt","class":"isolate"};
+
+const appTeleportTag = "div";
+
+const appTeleportAttrs = {"id":"teleports"};
+
+const appSpaLoaderTag = "div";
+
+const appSpaLoaderAttrs = {"id":"__nuxt-loader"};
+
+const appId = "nuxt-app";
+
+const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
+const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
+// @ts-expect-error file will be produced after app build
+const getServerEntry = () => import('../build/server.mjs').then((r) => r.default || r);
+// @ts-expect-error file will be produced after app build
+const getPrecomputedDependencies = () => import('../build/client.precomputed.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+// -- SSR Renderer --
+const getSSRRenderer = lazyCachedFunction(async () => {
+	// Load server bundle
+	const createSSRApp = await getServerEntry();
+	if (!createSSRApp) {
+		throw new Error("Server bundle is not available");
+	}
+	// Load precomputed dependencies
+	const precomputed = await getPrecomputedDependencies();
+	// Create renderer
+	const renderer = createRenderer(createSSRApp, {
+		precomputed,
+		manifest: undefined,
+		renderToString: renderToString$1,
+		buildAssetsURL
+	});
+	async function renderToString$1(input, context) {
+		const html = await renderToString(input, context);
+		return APP_ROOT_OPEN_TAG + html + APP_ROOT_CLOSE_TAG;
+	}
+	return renderer;
+});
+// -- SPA Renderer --
+const getSPARenderer = lazyCachedFunction(async () => {
+	const precomputed = await getPrecomputedDependencies();
+	// @ts-expect-error virtual file
+	const spaTemplate = await import('../virtual/_virtual_spa-template.mjs').then((r) => r.template).catch(() => "").then((r) => {
+		{
+			const APP_SPA_LOADER_OPEN_TAG = `<${appSpaLoaderTag}${propsToString(appSpaLoaderAttrs)}>`;
+			const APP_SPA_LOADER_CLOSE_TAG = `</${appSpaLoaderTag}>`;
+			const appTemplate = APP_ROOT_OPEN_TAG + APP_ROOT_CLOSE_TAG;
+			const loaderTemplate = r ? APP_SPA_LOADER_OPEN_TAG + r + APP_SPA_LOADER_CLOSE_TAG : "";
+			return appTemplate + loaderTemplate;
+		}
+	});
+	// Create SPA renderer and cache the result for all requests
+	const renderer = createRenderer(() => () => {}, {
+		precomputed,
+		manifest: undefined,
+		renderToString: () => spaTemplate,
+		buildAssetsURL
+	});
+	const result = await renderer.renderToString({});
+	const renderToString = (ssrContext) => {
+		const config = useRuntimeConfig(ssrContext.event);
+		ssrContext.modules ||= new Set();
+		ssrContext.payload.serverRendered = false;
+		ssrContext.config = {
+			public: config.public,
+			app: config.app
+		};
+		return Promise.resolve(result);
+	};
+	return {
+		rendererContext: renderer.rendererContext,
+		renderToString
+	};
+});
+function lazyCachedFunction(fn) {
+	let res = null;
+	return () => {
+		if (res === null) {
+			res = fn().catch((err) => {
+				res = null;
+				throw err;
+			});
+		}
+		return res;
+	};
+}
+function getRenderer(ssrContext) {
+	return ssrContext.noSSR ? getSPARenderer() : getSSRRenderer();
+}
+// @ts-expect-error file will be produced after app build
+const getSSRStyles = lazyCachedFunction(() => import('../build/styles.mjs').then((r) => r.default || r));
 
 function renderPayloadResponse(ssrContext) {
 	return {
@@ -64,6 +214,44 @@ function splitPayload(ssrContext) {
 			prerenderedAt
 		}
 	};
+}
+
+const unheadOptions = {
+  disableDefaults: true,
+};
+
+function createSSRContext(event) {
+	const ssrContext = {
+		url: decodePath(event.path),
+		event,
+		runtimeConfig: useRuntimeConfig(event),
+		noSSR: event.context.nuxt?.noSSR || (false),
+		head: createHead(unheadOptions),
+		error: false,
+		nuxt: undefined,
+		payload: {},
+		["~payloadReducers"]: Object.create(null),
+		modules: new Set()
+	};
+	return ssrContext;
+}
+function setSSRError(ssrContext, error) {
+	ssrContext.error = true;
+	ssrContext.payload = { error };
+	ssrContext.url = error.url;
+}
+
+async function renderInlineStyles(usedModules) {
+	const styleMap = await getSSRStyles();
+	const inlinedStyles = new Set();
+	for (const mod of usedModules) {
+		if (mod in styleMap && styleMap[mod]) {
+			for (const style of await styleMap[mod]()) {
+				inlinedStyles.add(style);
+			}
+		}
+	}
+	return Array.from(inlinedStyles).map((style) => ({ innerHTML: style }));
 }
 
 const renderSSRHeadOptions = {"omitLineBreaks":true};
@@ -246,7 +434,7 @@ const renderer = defineRenderHandler(async (event) => {
 		head: normalizeChunks([headTags]),
 		bodyAttrs: bodyAttrs ? [bodyAttrs] : [],
 		bodyPrepend: normalizeChunks([bodyTagsOpen, ssrContext.teleports?.body]),
-		body: [replaceIslandTeleports(ssrContext, _rendered.html) , APP_TELEPORT_OPEN_TAG + (HAS_APP_TELEPORTS ? joinTags([ssrContext.teleports?.[`#${appTeleportAttrs.id}`]]) : "") + APP_TELEPORT_CLOSE_TAG],
+		body: [_rendered.html, APP_TELEPORT_OPEN_TAG + (HAS_APP_TELEPORTS ? joinTags([ssrContext.teleports?.[`#${appTeleportAttrs.id}`]]) : "") + APP_TELEPORT_CLOSE_TAG],
 		bodyAppend: [bodyTags]
 	};
 	// Allow hooking into the rendered result
@@ -285,5 +473,10 @@ function renderHTMLDocument(html) {
 	return "<!DOCTYPE html>" + `<html${joinAttrs(html.htmlAttrs)}>` + `<head>${joinTags(html.head)}</head>` + `<body${joinAttrs(html.bodyAttrs)}>${joinTags(html.bodyPrepend)}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body>` + "</html>";
 }
 
-export { renderer as default };
+const renderer$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: renderer
+}, Symbol.toStringTag, { value: 'Module' }));
+
+export { headSymbol as h, renderer$1 as r, useHead as u };
 //# sourceMappingURL=renderer.mjs.map
