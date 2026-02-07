@@ -1,5 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
-
+// <meta name='' content=Bqjw5pdkG>
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   
@@ -12,7 +12,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: "utf-8" },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        
+        {name:"admaven-placement",content:"Bqjw5pdkG"},
         // --- CRITICAL SEO FIX ---
         // Changed "noindex, nofollow" to "index, follow" so Google can find you
         { name: "robots", content: "index, follow" },
