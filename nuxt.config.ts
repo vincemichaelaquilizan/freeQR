@@ -1,5 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 // <meta name='' content=Bqjw5pdkG>
+// <meta name="monetag" content="399a7c25ec4a54664ceac1cd096cdf96">
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   
@@ -12,6 +13,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: "utf-8" },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {name:"monetag",content:"399a7c25ec4a54664ceac1cd096cdf96"},
         {name:"admaven-placement",content:"Bqjw5pdkG"},
         // --- CRITICAL SEO FIX ---
         // Changed "noindex, nofollow" to "index, follow" so Google can find you
