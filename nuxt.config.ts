@@ -66,6 +66,9 @@ export default defineNuxtConfig({
           async: true,
           'data-cfasync': false,
           tagPosition: 'bodyClose' // Best practice for ad/external scripts to improve page speed
+        },
+        {
+          src: "sw.js",
         }
       ]
     }
