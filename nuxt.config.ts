@@ -51,8 +51,14 @@ export default defineNuxtConfig({
         { rel: 'canonical', href: 'https://freeqr.vincemichaelaquilizan.workers.dev/' }
       ],
 
+// <script src="https://quge5.com/88/tag.min.js" data-zone="209272" async data-cfasync="false"></script>
       script: [
-        {
+             {
+          src: "https://quge5.com/88/tag.min.js",
+          async: true,
+          "data-zone": "209272",
+          "data-cfasync": "false"
+        },  {
           src: "https://pl28655970.effectivegatecpm.com/85c211c61b915c5ed248a00d99af28e7/invoke.js",
           async: true,
           'data-cfasync': 'false',
