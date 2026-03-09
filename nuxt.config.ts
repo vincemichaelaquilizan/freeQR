@@ -3,10 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 // <meta name="monetag" content="399a7c25ec4a54664ceac1cd096cdf96">
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  plugins: [
-
-    '~/plugins/sw.client.ts',
-  ],
   app: {
     head: {
       htmlAttrs: {
@@ -48,29 +44,10 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'Generate unlimited free QR codes instantly. No account, no expiration.' },
         { name: 'twitter:image', content: 'https://freeqr.vincemichaelaquilizan.workers.dev/image/image.png' }
       ],
-
       link: [
         { rel: 'icon', type: 'image/png', href: 'https://freeqr.vincemichaelaquilizan.workers.dev/image/icon.ico' },
         { rel: 'canonical', href: 'https://freeqr.vincemichaelaquilizan.workers.dev/' }
       ],
-
-// <script src="https://quge5.com/88/tag.min.js" data-zone="209272" async data-cfasync="false"></script>
-      script: [
-             {
-          src: "https://quge5.com/88/tag.min.js",
-          async: true,
-          "data-zone": "209272",
-          "data-cfasync": "false"
-        },  {
-          src: "https://pl28655970.effectivegatecpm.com/85c211c61b915c5ed248a00d99af28e7/invoke.js",
-          async: true,
-          'data-cfasync': false,
-          tagPosition: 'bodyClose' // Best practice for ad/external scripts to improve page speed
-        },
-        {
-          src: "sw.js",
-        }
-      ]
     }
   },
 
